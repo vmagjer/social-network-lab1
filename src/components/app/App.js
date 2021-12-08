@@ -21,11 +21,12 @@ function App() {
   const handleSignIn = async (provider) => {
     const auth = getAuth(app)
     try {
+      // Prijavi se preko Facebook Login
       const result = await signInWithPopup(auth, provider)
       const user = result.user
 
       setUser(user)
-
+      // Dodaj usera u bazu
       const docRef = await addDoc(collection(db, 'users'), {
         email: user.email,
         name: user.displayName,
@@ -37,7 +38,7 @@ function App() {
       console.log(error)
     }
   }
-
+  // Odjava
   const handleSignOut = async () => {
     const auth = getAuth(app)
     try {
@@ -63,6 +64,8 @@ function App() {
   //   setListPage(movies.page)
   //   setLastQuery(() => handleGetPopularMovies)
   // }
+  
+  // Mijenjaj stranicu
   const handlePageLeft = async () => {
     if (movieList.length === 0) return
     if (listPage === 1) return
@@ -74,6 +77,7 @@ function App() {
     setListPage((prev) => prev + 1)
   }
 
+  // Dohvati filmove kad se promijeni stranica
   useEffect(() => {
     async function bo() {
       const movies = await getMovies(search, listPage)
@@ -82,11 +86,12 @@ function App() {
     }
     if (search.length) bo()
   }, [listPage])
-
+  
   const handleInputChange = (event) => {
     setSearch(event.target.value)
   }
 
+  // dohvati filmove na klik
   const handleSearch = async () => {
     const movies = await getMovies(search, listPage)
     setMovieList(movies.results)
