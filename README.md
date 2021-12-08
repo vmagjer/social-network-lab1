@@ -1,70 +1,31 @@
-# Getting Started with Create React App
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Objasnjenje
 
-In the project directory, you can run:
+Firebase nudi pomoc za prijavu preko raznih drustvenih mreza. Nije mi funkcionirao facebook login bez firebase-a kao posrednika.
+Firebase takoder nudi besplatno 1GiB NoSQL bazu podataka, pa sam nju iskoristio za pohranu korisnickih podataka.
+Aplikacija se moze pokrenuti u dev modu ovako:
+  1. instalirati npm
+  2. pokrenuti `npm install` sto ce instalirati sve _dependencije_ 
+  3. u root direktoriju pokrenuti `npm start`
+To ce otvoriti aplikaciju u default browseru. Ja sam radio u Google Chrome.
 
-### `yarn start`
+Moguce je pregledavati podatke o filmovima dohvacenih s https://www.themoviedb.org/ i recenzije filmova dohvacene s https://developer.nytimes.com/.
+Potrebno je unijeti neki search string.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Ti podaci se mogu dohvacati samo po 20 komada odjednom (ograniceno od strane API-a). 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Mogao bih spajati rezenzije s filmovima samo preko naslova filma jer recenzije ne pruzaju nikakav drugi kljuc. 
+Nisam uspio osmisliti kako iskoristiti ove podatke pa ih nisam niti spremao u bazu, dakle samo se dohvacaju s API-a i prikazuju na klijentu.
 
-### `yarn test`
+U `src/components/app/App.js` je vecinom ponasanje UI-a.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+U `src/service/nyt-api.js` i `src/service/tmdb_api.js` je logika za dohvacanje podataka sa 2 API-a. Zanemarite omdb_api.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+U `src/config/firebase-config.js` je konfiguracija za komuniciranje s Firebase-om.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+U `src/config/authMethods.js` je konfiguracija za autentifikaciju preko Facebook Logina.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+U `src/config/firebase-config.js` je konfiguracija za komuniciranje s Firebase-om.
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
