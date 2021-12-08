@@ -6,7 +6,7 @@ Firebase nudi pomoc za prijavu preko raznih drustvenih mreza. Nije mi funkcionir
 Firebase takoder nudi besplatno 1GiB NoSQL bazu podataka, pa sam nju iskoristio za pohranu korisnickih podataka.
 Aplikacija se moze pokrenuti u dev modu ovako:
   1. instalirati npm
-  2. pokrenuti `npm install` sto ce instalirati sve _dependencije_ 
+  2. u root direktoriju aplikacje pokrenuti `npm install` sto ce instalirati sve _dependencije_ 
   3. u root direktoriju pokrenuti `npm start`
 To ce otvoriti aplikaciju u default browseru. Ja sam radio u Google Chrome.
 
